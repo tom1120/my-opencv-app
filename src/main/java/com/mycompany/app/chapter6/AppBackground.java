@@ -62,8 +62,9 @@ public class AppBackground
 		Image tempImage;  
 		
 		VideoProcessor videoProcessor;
-		VideoCapture capture = new VideoCapture("src/main/resources/videos/tree.avi");
-		
+		VideoCapture capture = new VideoCapture();
+		capture.open("src/main/resources/videos/tree.avi");
+
 		if( capture.isOpened()){
 			
 			capture.read(backgroundImage);
