@@ -38,7 +38,8 @@ public class AppKinect
 		Mat resizedBackground = new Mat();
 		Mat workingBackground = new Mat();
 		
-		VideoCapture capture = new VideoCapture(CV_CAP_OPENNI);
+		VideoCapture capture = new VideoCapture();
+		capture.open(CV_CAP_OPENNI);
 		capture.grab();
 		capture.retrieve( depthMap,  CV_CAP_OPENNI_DISPARITY_MAP);
 		depthMap.convertTo( disparityImage,CvType.CV_8UC1, 1.00f );
