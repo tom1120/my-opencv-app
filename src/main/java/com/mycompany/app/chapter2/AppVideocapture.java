@@ -39,7 +39,8 @@ public class AppVideocapture {
 		ImageProcessor imageProcessor = new ImageProcessor();
 		Mat webcamMatImage = new Mat();
 		Image tempImage;
-		VideoCapture capture = new VideoCapture(0);
+		VideoCapture capture = new VideoCapture();
+		capture.open(0);
 		capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 320);
 		capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240);
 		if (capture.isOpened()) {

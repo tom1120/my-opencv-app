@@ -37,7 +37,8 @@ public class AppVideoplayback {
 		ImageProcessor imageProcessor = new ImageProcessor();
 		Mat webcamMatImage = new Mat();  
 		Image tempImage;  
-		VideoCapture capture = new VideoCapture("src/main/resources/videos/tree.avi");
+		VideoCapture capture = new VideoCapture();
+		capture.open("src/main/resources/videos/tree.avi");
 //		capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 320);
 //		capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240);
 		if( capture.isOpened()){  

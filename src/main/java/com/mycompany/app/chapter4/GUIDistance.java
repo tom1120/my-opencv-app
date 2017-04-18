@@ -102,11 +102,29 @@ public class GUIDistance {
 
 
 	protected void processOperation() {
+
 		Imgproc.Canny(originalImage, image, 220, 255, 3, false);
 		Imgproc.threshold(image, image, 100, 255, Imgproc.THRESH_BINARY_INV);
 		Imgproc.distanceTransform(image, image, Imgproc.CV_DIST_L2, 3);
-		image.convertTo(image, CvType.CV_8UC1);
-		Core.multiply(image, new Scalar(20), image);
+
+		image.convertTo(image,CvType.CV_8UC1);
+
+
+
+//		System.out.println(image.get(0,0)[0]);
+//		System.out.println(image.get(0,0).length);
+//		System.out.println("image:"+image.size());
+//		Core.multiply(image, new Scalar(20), image);
+
+//		image.convertTo(image, CvType.CV_64F);
+//		Mat sc=new Mat(image.cols(),640,0,new Scalar(new double[]{1,0,0,0}));
+//		sc.convertTo(sc,CvType.CV_64F);
+//		Core.gemm(image ,sc, 1, new Mat(), 0, image);
+//				System.out.println(image.get(0,0)[0]);
+//		image.convertTo(image,CvType.CV_8UC1);
+//				System.out.println(image.get(0,0)[0]);
+
+		image=image.mul(image,20.0);
 		
 		updateView();
 	}
