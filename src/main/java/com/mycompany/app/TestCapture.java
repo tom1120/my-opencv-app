@@ -92,7 +92,7 @@ public class TestCapture {
 		ImageViewer iv=new ImageViewer();
 		
 		try {
-			iv.show(tc.openFile("src/main/resources/images/welcome.jpg"),"Loaded image");
+			iv.show(tc.openFile("src/main/resources/images/apple.jpg"),"Loaded image");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

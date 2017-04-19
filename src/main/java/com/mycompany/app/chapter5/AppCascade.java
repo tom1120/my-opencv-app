@@ -45,6 +45,8 @@ public class AppCascade
 	//The following code shows how to load a trained cascade
 	private void loadCascade() {
 		String cascadePath = "src/main/resources/cascades/lbpcascade_frontalface.xml";
+		//使用人脸识别库
+//		String cascadePath = "src/main/resources/practiceimages/lbpcascade_frontalface.xml";
 	    faceDetector = new CascadeClassifier(cascadePath);
 	}
 
@@ -61,7 +63,8 @@ public class AppCascade
 		ImageProcessor imageProcessor = new ImageProcessor();
 		Mat webcamMatImage = new Mat();  
 		Image tempImage;  
-		VideoCapture capture = new VideoCapture(0);
+		VideoCapture capture = new VideoCapture();
+		capture.open(0);
 		capture.set(Videoio.CV_CAP_PROP_FRAME_WIDTH,640);
 		capture.set(Videoio.CV_CAP_PROP_FRAME_HEIGHT,480);
 
@@ -91,6 +94,8 @@ public class AppCascade
 	private void detectAndDrawFace(Mat image) {
 	    MatOfRect faceDetections = new MatOfRect();
 	    faceDetector.detectMultiScale(	image, faceDetections, 1.1, 7,0,new Size(250,40),new Size());
+//	    faceDetector.detectMultiScale(	image, faceDetections, 1.2, 2,0,new Size(100,40),new Size());
+
 	    // Draw a bounding box around each face.
 	    for (Rect rect : faceDetections.toArray()) {
 	        Imgproc.rectangle(image, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));
